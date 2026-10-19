@@ -1,0 +1,9 @@
+# Solo se publican index.html, css/, images/, icons/, robots.txt y sitemap.xml
+node_modules
+src
+.claude
+DESIGN.md
+package.json
+package-lock.json
+tailwind.config.js
+.gitignore

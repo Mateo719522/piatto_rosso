@@ -1,24 +1,263 @@
-<!DOCTYPE html><html lang="es" class="scroll-smooth"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><title>Piatto Rosso | Pastas Frescas Artesanales en Buenos Aires</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c91818'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='bold' fill='%23fff' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E"><meta name="description" content="Fábrica de pastas caseras en Buenos Aires: ravioles, sorrentinos, ñoquis, lasagnas, salsas y postres. Armá tu pedido online y envialo por WhatsApp. 4 sucursales en CABA y delivery."><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"><style>
-#branches-map{font-family:"Plus Jakarta Sans",sans-serif;}
-#branches-map .leaflet-tile-pane{filter:saturate(.55) sepia(.12) brightness(1.03);}
-.branch-pin{background:none;border:0;}
-.branch-pin__wrap{position:relative;display:flex;flex-direction:column;align-items:center;transform:translateY(-4px);transition:transform .2s ease;}
-.branch-pin__dot{width:40px;height:40px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#c91818;border:3px solid #fff;box-shadow:0 6px 16px rgba(45,25,15,.35);display:flex;align-items:center;justify-content:center;}
-.branch-pin__dot .material-symbols-outlined{transform:rotate(45deg);color:#fff;font-size:20px;}
-.branch-pin__label{margin-top:6px;padding:2px 8px;border-radius:9999px;background:#fdf9f0;color:#1c1c17;font:700 11px/16px "Plus Jakarta Sans",sans-serif;white-space:nowrap;box-shadow:0 2px 6px rgba(45,25,15,.2);}
-.branch-pin--top .branch-pin__wrap{flex-direction:column-reverse;}
-.branch-pin--top .branch-pin__label{margin-top:0;margin-bottom:10px;}
-.branch-pin.is-active .branch-pin__wrap{transform:translateY(-10px) scale(1.12);}
-.branch-pin.is-active .branch-pin__dot{background:#a00009;}
-.branch-pin.is-active .branch-pin__label{background:#a00009;color:#fff;}
-#branches-map .leaflet-popup-content-wrapper{border-radius:16px;background:#fdf9f0;box-shadow:0 20px 40px rgba(28,25,23,.18);}
-#branches-map .leaflet-popup-tip{background:#fdf9f0;}
-#branches-map .leaflet-popup-content{margin:14px 16px;min-width:210px;}
-#branches-map a.leaflet-popup-close-button{top:6px;right:6px;}
-.branch-chip.is-active{background:#a00009!important;border-color:#a00009!important;color:#fff!important;}
-.branch-card-active{box-shadow:0 0 0 2px #c91818,0 12px 28px rgba(45,25,15,.08);}
-</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-secondary-fixed":"#1e1b19","tertiary":"#715c13","on-primary-container":"#ffdcd8","on-background":"#1c1c17","secondary-fixed":"#e9e1dd","inverse-surface":"#31312b","on-error":"#ffffff","on-surface":"#1c1c17","tertiary-container":"#c4a95a","on-tertiary-fixed-variant":"#574500","tertiary-fixed":"#fee08b","surface-container":"#f1eee5","secondary-container":"#e9e1dd","primary":"#a00009","on-secondary-fixed-variant":"#4a4643","on-primary":"#ffffff","surface-variant":"#e6e2d9","secondary":"#625d5b","surface-dim":"#dddad1","surface-container-lowest":"#ffffff","primary-container":"#c91818","surface-container-highest":"#e6e2d9","surface-container-low":"#f7f3ea","outline-variant":"#e6bdb8","on-tertiary-fixed":"#231b00","on-secondary-container":"#686361","surface-container-high":"#ece8df","primary-fixed":"#ffdad5","background":"#fdf9f0","primary-fixed-dim":"#ffb4aa","on-surface-variant":"#5c403c","on-error-container":"#93000a","on-primary-fixed":"#410001","on-primary-fixed-variant":"#930007","surface-tint":"#be0b11","on-tertiary":"#ffffff","surface-bright":"#fdf9f0","secondary-fixed-dim":"#ccc5c2","inverse-on-surface":"#f4f0e7","surface":"#fdf9f0","inverse-primary":"#ffb4aa","on-secondary":"#ffffff","outline":"#916f6b","error":"#ba1a1a","tertiary-fixed-dim":"#e0c472","on-tertiary-container":"#4e3e00","error-container":"#ffdad6"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-sm":"0.5rem","gutter":"1.25rem","space-md":"1rem","margin-desktop":"3.5rem","margin-tablet":"2rem","space-xs":"0.25rem","margin":"1rem","space-lg":"1.5rem","space-xl":"2.5rem","gutter-desktop":"2rem"},"fontFamily":{"headline-lg-mobile":["Playfair Display"],"body-lg":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"headline-lg":["Playfair Display"],"headline-xl":["Playfair Display"],"headline-md":["Playfair Display"],"title-lg":["Plus Jakarta Sans"],"headline-xl-mobile":["Playfair Display"],"body-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"]},"fontSize":{"headline-lg-mobile":["28px",{"lineHeight":"34px","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"26px","fontWeight":"400"}],"title-md":["18px",{"lineHeight":"24px","fontWeight":"600"}],"headline-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-xl":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["24px",{"lineHeight":"32px","fontWeight":"600"}],"title-lg":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-xl-mobile":["34px",{"lineHeight":"42px","letterSpacing":"-0.01em","fontWeight":"700"}],"body-md":["14px",{"lineHeight":"22px","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary"><header class="fixed top-0 left-0 right-0 z-50 shadow-[0_1px_8px_rgba(45,25,15,0.04)]"><div class="bg-on-surface text-surface py-1.5 px-margin text-center font-label-sm tracking-wide"><p class="flex items-center justify-center gap-2"><span class="material-symbols-outlined text-tertiary-fixed text-[16px]">schedule</span><span class="">Abierto todos los días · Delivery disponible · Pedidos por WhatsApp <a class="underline underline-offset-2 hover:text-tertiary-fixed font-bold" href="https://wa.me/5491180003242?text=Hola!%20Quiero%20hacer%20un%20pedido%20en%20Piatto%20Rosso.">+54 11 8000-3242</a></span></p></div><div class="bg-surface/95 backdrop-blur-xl"><div class="h-20 max-w-7xl mx-auto px-gutter lg:px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm" data-path="home" href="#"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVMonIFBE2Zu8TBp8Xns4_dX2UylvXT7oDWcnTrCOu0nivQ2sO3EfIR0pfmRMvuB37ZCb0Lwq-7i_GW8q6M6p9W1VJl4DEP6xhbElVaD8myTDrSpazDtJ2uuZ6CnRL6VQr3119iXJ96StNFboRVXEHqp49vYqqSZ180isdMYQ7zMQTJmQIdVsdRLv6AnDZTgzddQg0svjYzKJlTATuzmWeHCOVtoxnspeionaM_ZCl2zuRwQF4jGJ6UUzPlwrqWwc8ig" alt="Piatto Rosso - Fábrica de Pastas" class="h-12 w-auto object-contain"></a></div><nav class="hidden xl:flex items-center gap-space-sm p-1 bg-surface-container/60 rounded-xl" data-active-classes="bg-primary text-on-primary rounded-lg font-label-lg shadow-sm"><a class="px-space-md py-space-sm font-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="nuestras-pastas" href="#nuestras-pastas">Nuestras pastas</a><a class="px-space-md py-space-sm font-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="como-pedir" href="#como-pedir">Cómo pedir</a><a class="px-space-md py-space-sm font-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="nuestra-historia" href="#nuestra-historia">Nuestra historia</a><a class="px-space-md py-space-sm font-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="sucursales" href="#sucursales">Sucursales</a><a class="px-space-md py-space-sm font-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="resenas" href="#resenas">Reseñas</a><a class="px-space-md py-space-sm font-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="mayorista" href="#mayorista">Venta Mayorista</a></nav><div class="flex items-center gap-space-md"><button id="header-cart-btn" onclick="window.toggleCart()" class="relative flex items-center justify-center p-2 rounded-lg bg-surface-container hover:bg-surface-dim text-on-surface transition-colors"><span class="material-symbols-outlined text-[24px]">shopping_bag</span><span id="cart-badge" class="absolute -top-1.5 -right-1.5 bg-primary text-on-primary text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">0</span></button><a class="hidden sm:inline-flex items-center justify-center bg-primary-container hover:bg-primary text-on-primary font-label-lg px-space-lg py-2.5 rounded-lg transition-all duration-200 shadow-[0_4px_16px_rgba(201,24,24,0.25)] hover:-translate-y-0.5" href="https://wa.me/5491180003242?text=Hola!%20Quiero%20hacer%20un%20pedido%20en%20Piatto%20Rosso." rel="noopener noreferrer" target="_blank">Pedí por WhatsApp</a><button id="mobile-menu-btn" type="button" onclick="window.toggleMobileMenu()" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu" class="xl:hidden flex items-center justify-center p-2 rounded-lg bg-surface-container hover:bg-surface-dim text-on-surface transition-colors"><span class="material-symbols-outlined text-[24px]">menu</span></button></div></div><nav id="mobile-menu" class="xl:hidden hidden border-t border-surface-container bg-surface px-gutter py-space-sm"><div class="max-w-7xl mx-auto flex flex-col"><a class="py-3 font-label-lg text-on-surface border-b border-surface-container" href="#nuestras-pastas">Nuestras pastas</a><a class="py-3 font-label-lg text-on-surface border-b border-surface-container" href="#carta">Carta y precios</a><a class="py-3 font-label-lg text-on-surface border-b border-surface-container" href="#como-pedir">Cómo pedir</a><a class="py-3 font-label-lg text-on-surface border-b border-surface-container" href="#nuestra-historia">Nuestra historia</a><a class="py-3 font-label-lg text-on-surface border-b border-surface-container" href="#sucursales">Sucursales</a><a class="py-3 font-label-lg text-on-surface border-b border-surface-container" href="#resenas">Reseñas</a><a class="py-3 font-label-lg text-on-surface" href="#mayorista">Venta Mayorista</a></div></nav></div></header><main class="w-full pt-28 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!DOCTYPE html>
+<html lang="es-AR" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piatto Rosso | Pastas Frescas Artesanales en Buenos Aires</title>
+<meta name="description" content="Fábrica de pastas caseras en Buenos Aires: ravioles, sorrentinos, ñoquis, lasagnas, salsas y postres. Armá tu pedido online y envialo por WhatsApp. 4 sucursales en CABA y delivery.">
+<link rel="canonical" href="https://piattorosso.vercel.app/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#c91818">
+<link rel="icon" type="image/png" sizes="48x48" href="/icons/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="Piatto Rosso">
+<meta property="og:title" content="Piatto Rosso | Pastas Frescas Artesanales en Buenos Aires">
+<meta property="og:description" content="Fábrica de pastas caseras en Buenos Aires: ravioles, sorrentinos, ñoquis, lasagnas, salsas y postres. Armá tu pedido online y envialo por WhatsApp. 4 sucursales en CABA y delivery.">
+<meta property="og:url" content="https://piattorosso.vercel.app/">
+<meta property="og:image" content="https://piattorosso.vercel.app/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Piatto Rosso - Pastas frescas artesanales, hechas como en casa">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="images/hero-pasta-fresca.jpg" fetchpriority="high">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0&amp;icon_names=add_shopping_cart,arrow_forward,bakery_dining,call,celebration,chat,check_circle,close,delete,egg_alt,local_pizza,local_shipping,location_on,lunch_dining,map,menu,menu_book,photo_camera,restaurant,restaurant_menu,schedule,shopping_bag,shopping_cart,soup_kitchen,storefront,timelapse,two_wheeler,verified,workspace_premium,zoom_out_map&amp;display=block">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="css/styles.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://piattorosso.vercel.app/#organizacion",
+   "name": "Piatto Rosso",
+   "url": "https://piattorosso.vercel.app/",
+   "logo": "https://piattorosso.vercel.app/icons/icon-192.png",
+   "telephone": "+54 11 8000-3242",
+   "sameAs": [
+    "https://www.instagram.com/piatto_rosso/"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://piattorosso.vercel.app/#sitio",
+   "url": "https://piattorosso.vercel.app/",
+   "name": "Piatto Rosso",
+   "inLanguage": "es-AR",
+   "publisher": {
+    "@id": "https://piattorosso.vercel.app/#organizacion"
+   }
+  },
+  {
+   "@type": "FoodEstablishment",
+   "name": "Piatto Rosso Caballito",
+   "description": "Fábrica de pastas frescas artesanales: ravioles, sorrentinos, ñoquis, lasagnas, salsas y postres.",
+   "parentOrganization": {
+    "@id": "https://piattorosso.vercel.app/#organizacion"
+   },
+   "url": "https://piattorosso.vercel.app/#sucursales",
+   "image": "https://piattorosso.vercel.app/images/og-image.jpg",
+   "telephone": "+54 11 8000-3242",
+   "servesCuisine": [
+    "Italiana",
+    "Pastas frescas"
+   ],
+   "priceRange": "$$",
+   "hasMenu": "https://piattorosso.vercel.app/#carta",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Del Barco Centenera 614",
+    "addressLocality": "Caballito, Ciudad Autónoma de Buenos Aires",
+    "addressRegion": "CABA",
+    "addressCountry": "AR"
+   },
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -34.62675,
+    "longitude": -58.44078
+   },
+   "openingHoursSpecification": [
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+     ],
+     "opens": "09:00",
+     "closes": "20:00"
+    },
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": "Sunday",
+     "opens": "09:00",
+     "closes": "14:00"
+    }
+   ]
+  },
+  {
+   "@type": "FoodEstablishment",
+   "name": "Piatto Rosso Palermo",
+   "description": "Fábrica de pastas frescas artesanales: ravioles, sorrentinos, ñoquis, lasagnas, salsas y postres.",
+   "parentOrganization": {
+    "@id": "https://piattorosso.vercel.app/#organizacion"
+   },
+   "url": "https://piattorosso.vercel.app/#sucursales",
+   "image": "https://piattorosso.vercel.app/images/og-image.jpg",
+   "telephone": "+54 11 8000-3242",
+   "servesCuisine": [
+    "Italiana",
+    "Pastas frescas"
+   ],
+   "priceRange": "$$",
+   "hasMenu": "https://piattorosso.vercel.app/#carta",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Mansilla 2601",
+    "addressLocality": "Palermo, Ciudad Autónoma de Buenos Aires",
+    "addressRegion": "CABA",
+    "addressCountry": "AR"
+   },
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -34.59597,
+    "longitude": -58.40467
+   },
+   "openingHoursSpecification": [
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+     ],
+     "opens": "09:00",
+     "closes": "20:00"
+    },
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": "Sunday",
+     "opens": "09:00",
+     "closes": "14:00"
+    }
+   ]
+  },
+  {
+   "@type": "FoodEstablishment",
+   "name": "Piatto Rosso Villa Pueyrredón",
+   "description": "Fábrica de pastas frescas artesanales: ravioles, sorrentinos, ñoquis, lasagnas, salsas y postres.",
+   "parentOrganization": {
+    "@id": "https://piattorosso.vercel.app/#organizacion"
+   },
+   "url": "https://piattorosso.vercel.app/#sucursales",
+   "image": "https://piattorosso.vercel.app/images/og-image.jpg",
+   "telephone": "+54 11 8000-3242",
+   "servesCuisine": [
+    "Italiana",
+    "Pastas frescas"
+   ],
+   "priceRange": "$$",
+   "hasMenu": "https://piattorosso.vercel.app/#carta",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Mosconi 2412",
+    "addressLocality": "Villa Pueyrredón, Ciudad Autónoma de Buenos Aires",
+    "addressRegion": "CABA",
+    "addressCountry": "AR"
+   },
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -34.58299,
+    "longitude": -58.49662
+   },
+   "openingHoursSpecification": [
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+     ],
+     "opens": "09:00",
+     "closes": "20:00"
+    },
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": "Sunday",
+     "opens": "09:00",
+     "closes": "14:00"
+    }
+   ]
+  },
+  {
+   "@type": "FoodEstablishment",
+   "name": "Piatto Rosso Devoto",
+   "description": "Fábrica de pastas frescas artesanales: ravioles, sorrentinos, ñoquis, lasagnas, salsas y postres.",
+   "parentOrganization": {
+    "@id": "https://piattorosso.vercel.app/#organizacion"
+   },
+   "url": "https://piattorosso.vercel.app/#sucursales",
+   "image": "https://piattorosso.vercel.app/images/og-image.jpg",
+   "telephone": "+54 11 8000-3242",
+   "servesCuisine": [
+    "Italiana",
+    "Pastas frescas"
+   ],
+   "priceRange": "$$",
+   "hasMenu": "https://piattorosso.vercel.app/#carta",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Nazca 4086",
+    "addressLocality": "Devoto, Ciudad Autónoma de Buenos Aires",
+    "addressRegion": "CABA",
+    "addressCountry": "AR"
+   },
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -34.59092,
+    "longitude": -58.49811
+   },
+   "openingHoursSpecification": [
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+     ],
+     "opens": "09:00",
+     "closes": "20:00"
+    },
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": "Sunday",
+     "opens": "09:00",
+     "closes": "14:00"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary selection:text-on-primary"><header class="fixed top-0 left-0 right-0 z-50 shadow-[0_1px_8px_rgba(45,25,15,0.04)]"><div class="bg-on-surface text-surface py-1.5 px-margin text-center font-label-sm tracking-wide"><p class="flex items-center justify-center gap-2"><span class="material-symbols-outlined text-tertiary-fixed text-[16px]">schedule</span><span class="">Abierto todos los días · Delivery disponible · Pedidos por WhatsApp <a class="underline underline-offset-2 hover:text-tertiary-fixed font-bold" href="https://wa.me/5491180003242?text=Hola!%20Quiero%20hacer%20un%20pedido%20en%20Piatto%20Rosso.">+54 11 8000-3242</a></span></p></div><div class="bg-surface/95 backdrop-blur-xl"><div class="h-20 max-w-7xl mx-auto px-gutter lg:px-gutter-desktop flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm" data-path="home" href="#"><img src="images/logo.png" alt="Piatto Rosso - Fábrica de Pastas" width="208" height="200" class="h-12 w-auto object-contain"></a></div><nav class="hidden xl:flex items-center gap-space-sm p-1 bg-surface-container/60 rounded-xl" data-active-classes="bg-primary text-on-primary rounded-lg font-label-lg shadow-sm"><a class="px-space-md py-space-sm font-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="nuestras-pastas" href="#nuestras-pastas">Nuestras pastas</a><a class="px-space-md py-space-sm font-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="como-pedir" href="#como-pedir">Cómo pedir</a><a class="px-space-md py-space-sm font-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="nuestra-historia" href="#nuestra-historia">Nuestra historia</a><a class="px-space-md py-space-sm font-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="sucursales" href="#sucursales">Sucursales</a><a class="px-space-md py-space-sm font-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="resenas" href="#resenas">Reseñas</a><a class="px-space-md py-space-sm font-label-lg text-on-surface-variant hover:text-on-surface transition-colors" data-path="mayorista" href="#mayorista">Venta Mayorista</a></nav><div class="flex items-center gap-space-md"><button id="header-cart-btn" onclick="window.toggleCart()" class="relative flex items-center justify-center p-2 rounded-lg bg-surface-container hover:bg-surface-dim text-on-surface transition-colors"><span class="material-symbols-outlined text-[24px]">shopping_bag</span><span id="cart-badge" class="absolute -top-1.5 -right-1.5 bg-primary text-on-primary text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">0</span></button><a class="hidden sm:inline-flex items-center justify-center bg-primary-container hover:bg-primary text-on-primary font-label-lg px-space-lg py-2.5 rounded-lg transition-all duration-200 shadow-[0_4px_16px_rgba(201,24,24,0.25)] hover:-translate-y-0.5" href="https://wa.me/5491180003242?text=Hola!%20Quiero%20hacer%20un%20pedido%20en%20Piatto%20Rosso." rel="noopener noreferrer" target="_blank">Pedí por WhatsApp</a><button id="mobile-menu-btn" type="button" onclick="window.toggleMobileMenu()" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu" class="xl:hidden flex items-center justify-center p-2 rounded-lg bg-surface-container hover:bg-surface-dim text-on-surface transition-colors"><span class="material-symbols-outlined text-[24px]">menu</span></button></div></div><nav id="mobile-menu" class="xl:hidden hidden border-t border-surface-container bg-surface px-gutter py-space-sm"><div class="max-w-7xl mx-auto flex flex-col"><a class="py-3 font-label-lg text-on-surface border-b border-surface-container" href="#nuestras-pastas">Nuestras pastas</a><a class="py-3 font-label-lg text-on-surface border-b border-surface-container" href="#carta">Carta y precios</a><a class="py-3 font-label-lg text-on-surface border-b border-surface-container" href="#como-pedir">Cómo pedir</a><a class="py-3 font-label-lg text-on-surface border-b border-surface-container" href="#nuestra-historia">Nuestra historia</a><a class="py-3 font-label-lg text-on-surface border-b border-surface-container" href="#sucursales">Sucursales</a><a class="py-3 font-label-lg text-on-surface border-b border-surface-container" href="#resenas">Reseñas</a><a class="py-3 font-label-lg text-on-surface" href="#mayorista">Venta Mayorista</a></div></nav></div></header><main class="w-full pt-28 bg-background min-h-screen"><div class="flex flex-col w-full">
 <!-- Subtle decorative top Italian ribbon -->
 <div class="w-full h-1.5 flex">
 <div class="w-1/3 bg-tertiary"></div>
@@ -67,7 +306,7 @@
 <!-- Right Visual Showcase Column -->
 <div class="lg:col-span-5 relative flex justify-center">
 <div class="relative w-full max-w-lg aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-surface-container-low">
-<img class="w-full h-full object-cover" data-alt="Close-up of golden handmade fresh pasta ribbons dusted in fine semolina flour on a rustic Italian wooden bench with rolling pin and copper pasta cutter, cinematic soft warm sunlight, depth of field highlighting rich egg pasta textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOk5nvbCks70SzcwgjCT9RLgYgFP3SH45rGzMGNySA4FpaqLmCETZy-cucd4VaEoDTZ1Tn2BpY6Z9sRkJr8-iDkm8_ZK7aBsezssLOSzp-U1kjp-1DX3CdOnOnou-QrSENj-_pLlescMa1z7uBnR0LLyq4wlsA6lYdtgTuk-o9tyL0pQd9nBkK2nN4ySOPe0oNtb5YgRabtAX7b-FMKj0JOmNehz3JSQQWXOlKN527xx8HR4x6-Ud0">
+<img class="w-full h-full object-cover" src="images/hero-pasta-fresca.jpg" alt="Nidos de pasta fresca al huevo recién cortada sobre una mesa enharinada" fetchpriority="high">
 <div class="absolute inset-0 bg-gradient-to-t from-on-background/70 via-transparent to-transparent"></div>
 <!-- Floating badge on photo -->
 <div class="absolute bottom-6 left-6 right-6 p-space-md rounded-xl bg-surface/90 backdrop-blur-md shadow-lg flex items-center justify-between">
@@ -142,7 +381,7 @@
 <!-- 1. Ravioles -->
 <a class="group relative rounded-xl overflow-hidden bg-surface-container shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" href="#carta" onclick="switchTab('tab-ravioles')">
 <div class="w-full aspect-[4/3] overflow-hidden bg-surface-dim">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Traditional square Italian ravioli dusted with golden semolina flour on marble counter with fresh rosemary and parmigiano reggiano cheese" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3hY1mEmijmDJwZJOl1ILdnVYaIZarZKtWAjcMCABQh8ODXngK-Z7ZoQOAHgoxOwDLaQLD67LOuJdMi3oLu1VKMUvcSZXmtm2FwuUts9p94punMYn7pYwxCx_CQbRzNesu-CrbgMn7FXiQI8A51wyBTS4uG-ZbJAulH_o8Re27kB__XlN5fV4dpqKCu9kZdkb9tIVSwr6tyx3MVPCu2LqwiAE4SzOHqT9Ll2wMSEUDH9-ZhUaLxnuq">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/ravioles.jpg" alt="Ravioles caseros enharinados con romero y parmesano" loading="lazy" decoding="async">
 </div>
 <div class="p-space-sm flex flex-col justify-between flex-grow">
 <h3 class="font-title-md text-on-surface group-hover:text-primary transition-colors">Ravioles</h3>
@@ -152,7 +391,7 @@
 <!-- 2. Raviolones -->
 <a class="group relative rounded-xl overflow-hidden bg-surface-container shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" href="#carta" onclick="switchTab('tab-raviolones')">
 <div class="w-full aspect-[4/3] overflow-hidden bg-surface-dim">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Generously stuffed gourmet ravioloni filled with braised beef and ricotta, arranged artfully with sage leaves on an artisanal rustic table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBojtqb4l17gZhtMz36iGyX623GDiiI9Vip8XMcyRVNm3Tlrrt1j6xv9j1eWsTd8WrZGDR93YgzyGjFEkSPf-3fGyhXPt2M0318-32dhGYe091f-1diaOLng92V2QDUfJO9Fo-DnTP1TbEEE50yDqrB2a-UbkKlK_5CStDwasUX1TmH3_DNMfeI9SnPAsM4oTCHqIjKBdBm_WzLEsAthAkCS-zyL6wyl96nyWQE2C_O0xJhDKGupEGE">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/raviolones.jpg" alt="Raviolones rellenos de carne braseada y ricotta con hojas de salvia" loading="lazy" decoding="async">
 </div>
 <div class="p-space-sm flex flex-col justify-between flex-grow">
 <h3 class="font-title-md text-on-surface group-hover:text-primary transition-colors">Raviolones</h3>
@@ -162,7 +401,7 @@
 <!-- 3. Sorrentinos -->
 <a class="group relative rounded-xl overflow-hidden bg-surface-container shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" href="#carta" onclick="switchTab('tab-sorrentinos')">
 <div class="w-full aspect-[4/3] overflow-hidden bg-surface-dim">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Artisanal round sorrentinos stuffed with braised malbec beef and mozzarella, perfectly shaped with crimped edges on kitchen linen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj7aTnxTasvtF03Pz8kNgBFVJlbhqpXqFh-DCoO6Nelbfcs8mXxSaj_fnDQfnCYNb3j1KsZUkCS2kB66n_tfAE8s6jQEUdGuDu_gcqrsh2pHYzjuXu07a_V-Ytgp7UvX3KTTJrCqQ2SZOo6_Vm_qOxEChoJjFYG8rViMoCoVOYGbOBFIUYzkQ8KBy8OH7O5J1AJ9A9_bbsu68ULqqrlA_jG1An6eTWuTQhF3BZR1MBIV8qnc4VVOmN">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/sorrentinos.jpg" alt="Sorrentinos artesanales con el borde repulgado a mano" loading="lazy" decoding="async">
 </div>
 <div class="p-space-sm flex flex-col justify-between flex-grow">
 <h3 class="font-title-md text-on-surface group-hover:text-primary transition-colors">Sorrentinos</h3>
@@ -172,7 +411,7 @@
 <!-- 4. Ñoquis -->
 <a class="group relative rounded-xl overflow-hidden bg-surface-container shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" href="#carta" onclick="switchTab('tab-noquis')">
 <div class="w-full aspect-[4/3] overflow-hidden bg-surface-dim">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Golden handmade potato and spinach gnocchi ridges textured with rigagnocchi wooden board, sprinkled with flour on butcher block table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_zwx4jsHTrjBCIhJtke6SpWEWdyF3j3zK52IrRsK5rYzLkjQtZFpkfmhm8K4ioB-CD04Zgz5gxU8PM-mmu9-e4wDvhlVJfW-SOx-TqM_XAddhMW-_RLFTBwLxO-qUwRx1Af5ql9zAoWWhTodeHFUsyRledQsSaWQ9myvvMDidYUyEgGfQbTKNCPHo694S0z7gDyxxCVJ-y4LGTkdzCv1lYan8omOv1C49VrK8aq723PxiXH3xOyvN">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/noquis.jpg" alt="Ñoquis caseros de papa y espinaca recién hechos" loading="lazy" decoding="async">
 </div>
 <div class="p-space-sm flex flex-col justify-between flex-grow">
 <h3 class="font-title-md text-on-surface group-hover:text-primary transition-colors">Ñoquis</h3>
@@ -182,7 +421,7 @@
 <!-- 5. Fideos -->
 <a class="group relative rounded-xl overflow-hidden bg-surface-container shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" href="#carta" onclick="switchTab('tab-fideos')">
 <div class="w-full aspect-[4/3] overflow-hidden bg-surface-dim">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Tightly coiled nests of golden egg tagliatelle and vibrant green spinach fettuccine on craft wrapping paper with olive sprigs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7WAFA6WqzXcnkjCoQAQLVjGybJLr6MSF9IR9HRATpUnRWyAEqZEIkc9bZc8M0HY2rwxYJfBhXjWm0z8wc2Cqgg0Nhi7wfNBY-J7kz4mmSMCbcLXBGDL8eY1V4txIWvNuCfZj46l8Lr6gNGj6REQH_84iDIyIdVHjRFllOIKa4fAZcHd8OotLAvijPPHDfqWq87HUmDWgnbYQB0-AdsMx5RlW54IeViZ-FUpqVGqCWhDGIKZKI7dTt">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/fideos.jpg" alt="Nidos de tallarines al huevo y fettuccine de espinaca" loading="lazy" decoding="async">
 </div>
 <div class="p-space-sm flex flex-col justify-between flex-grow">
 <h3 class="font-title-md text-on-surface group-hover:text-primary transition-colors">Fideos Frescos</h3>
@@ -192,7 +431,7 @@
 <!-- 6. Lasagnas -->
 <a class="group relative rounded-xl overflow-hidden bg-surface-container shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" href="#carta" onclick="switchTab('tab-lasagnas')">
 <div class="w-full aspect-[4/3] overflow-hidden bg-surface-dim">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Traditional layered baked lasagna with bubbling melted mozzarella and rich tomato bolognese sauce in an earthenware baking dish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkhyWHKTipHOb3OagyKrUVavvyHukxGVXqHr9NuCnEoKCD7xQo6A9__nWM2JzTXB0LyuQP-9cRn3s_XnZTQ9yv4Y09PkubTSc574QRTqunfwUBMiKMZ5qNAS70FoXYbhOilOiz9a07e_Hy8TiV8Oh7ZcEhuKDXX28SwxCm96jZjRd7sRDl8LoeKlsbdPpyyDgloZTleUAOJj5W4Cyumed8TV3HCCUp0jAPE8DEeqGy-wQNNk9vD1D5">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/lasagna.jpg" alt="Lasagna gratinada con boloñesa y mozzarella" loading="lazy" decoding="async">
 </div>
 <div class="p-space-sm flex flex-col justify-between flex-grow">
 <h3 class="font-title-md text-on-surface group-hover:text-primary transition-colors">Lasagnas</h3>
@@ -202,7 +441,7 @@
 <!-- 7. Canelones -->
 <a class="group relative rounded-xl overflow-hidden bg-surface-container shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" href="#carta" onclick="switchTab('tab-lasagnas')">
 <div class="w-full aspect-[4/3] overflow-hidden bg-surface-dim">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Row of delicate stuffed cannelloni filled with spinach and ricotta, prepared in a ceramic casserole dish with velvety bechamel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY2RMFz_Fsfm09Vw5R7iTWAQJHWlPeDUqVrfECFgr0PDoij5ni6uOwTAlwYp81Gk0HbLu7xvjWFIs_Uhy_FLYEq6nLb1FywqLdCYqU_agK1iPrMaRtNYl7wnNNXSIQpc3zH7GEQ4JJlP_w31BHbYBlp99vcg-tmCL7ysnIIPCdrRcoBSP6ES9SHmkv44PGXCTfCPYN59tgPmnE-MNkla-sbYHBmhv-OPcl04lsu4rF-x_del7PYx6j">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/canelones.jpg" alt="Canelones de ricotta y espinaca con salsa bechamel" loading="lazy" decoding="async">
 </div>
 <div class="p-space-sm flex flex-col justify-between flex-grow">
 <h3 class="font-title-md text-on-surface group-hover:text-primary transition-colors">Canelones</h3>
@@ -212,7 +451,7 @@
 <!-- 8. Salsas -->
 <a class="group relative rounded-xl overflow-hidden bg-surface-container shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" href="#carta" onclick="switchTab('tab-salsas')">
 <div class="w-full aspect-[4/3] overflow-hidden bg-surface-dim">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Glass jars and terracotta bowls containing rich red pomodoro sauce, slow-cooked bolognese, and bright green Genovese basil pesto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDk2fZyfJvpExhgItF2Nfo_c2-QSo0kBmeMGAWvsHLcFmnz0ddI7329k1KbyJFv9M13tGVXsix2Gb6atlhcTvKbLmelQjV3A6Te-1tvrjNmNcyF2RAOY7LuifQML3oOiUGYbnzhVYnWhBGS8BIf8F85wlhVbxe6u7bNl73LnOUTP9F9NV5Cwc0cWSYy7jjfjCyTCrS5u_xjavJeuS7bkhUg6EVdWwm7qMq8xlg8Fy-wHQ_MhNfZO7U">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/salsas.jpg" alt="Frascos de salsa pomodoro, boloñesa y pesto genovés" loading="lazy" decoding="async">
 </div>
 <div class="p-space-sm flex flex-col justify-between flex-grow">
 <h3 class="font-title-md text-on-surface group-hover:text-primary transition-colors">Salsas Caseras</h3>
@@ -222,7 +461,7 @@
 <!-- 9. Tartas y Prepizzas -->
 <a class="group relative rounded-xl overflow-hidden bg-surface-container shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" href="#carta" onclick="switchTab('tab-tartas')">
 <div class="w-full aspect-[4/3] overflow-hidden bg-surface-dim">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Whole baked artisan vegetable quiche and golden rustic prepizza base topped with tomato sauce and herbs on baker paper" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASzywcubIRAQiE6eM_OCdjMApI0oHCSww7GNV5DOkiO29sAYi9vylTmLjNRggAgAFSZs0Ydh9QiOoDYaadEsHDme9jPgE6nx1V-_xQDjWuij19IXKIDGQ_2CM5w0sT9a1A6f0xgW-z1paP5CkQF9kMYnAtgluFyAG6we3PoApcJT3uAw0kWBCQJKfXLZBk3R0SOsZa5euO8rpA41KEBUJaMlM2-j4mJl4Y4E_K4b3YQ4mO4bhoK7Gm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/tartas-prepizzas.jpg" alt="Tarta de verduras y prepizza con salsa de tomate" loading="lazy" decoding="async">
 </div>
 <div class="p-space-sm flex flex-col justify-between flex-grow">
 <h3 class="font-title-md text-on-surface group-hover:text-primary transition-colors">Tartas &amp; Prepizzas</h3>
@@ -232,7 +471,7 @@
 <!-- 10. Postres -->
 <a class="group relative rounded-xl overflow-hidden bg-surface-container shadow-sm hover:shadow-md transition-all duration-300 flex flex-col" href="#carta" onclick="switchTab('tab-postres')">
 <div class="w-full aspect-[4/3] overflow-hidden bg-surface-dim">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Crisp flaky Neapolitan sfogliatella dusted with powdered sugar alongside classic Italian tiramisu in glass bowl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC6TZ-0NQb99qri1krU1FBYD259vwTNMOVPeUIhiYCdaAYOlLvZTkgOj6s0WTHnprlaRTSkoCGHcNbr-aH3OM9uqq2EKP6froNla7gTnYfbbcq81Fs5kSGN-G3JcL7bgtVDGWFYc_l84HUf8pPS26ExV4JJO-Mxoum_70fCh4kvmh1rzTB27gbklCIHDNiVqI6bfwD-P6Gj-qy0lPulK61yaBTPdKqmU8AGFbyboUQHSxboy9HeOnp">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="images/postres.jpg" alt="Sfogliatella con azúcar impalpable y tiramisú" loading="lazy" decoding="async">
 </div>
 <div class="p-space-sm flex flex-col justify-between flex-grow">
 <h3 class="font-title-md text-on-surface group-hover:text-primary transition-colors">Postres Típicos</h3>
@@ -664,7 +903,7 @@
 <!-- Photo Column -->
 <div class="lg:col-span-5 relative">
 <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-xl bg-surface-dim">
-<img class="w-full h-full object-cover" data-alt="Artisan pasta maker hands kneading fresh golden dough on a flour-dusted thick wooden kneading table, vintage aesthetic, warm ambient morning light in a traditional Argentine Italian pasta laboratory" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkhgC9WtNeEgz2D4ukglndgPPVWSYEyFbWscGQDNWNg0ylb7XSTW8RCv0Hq3kP1RkE46RBk4mRhKNmTCtUO7aW8Qz8pVq9NO_fYkxxi0K1zppiKrbnkKizzvIYsTPSH7DAEdCbbCheERFxFra7B2NmTDZywEoEFQIYc-XN1Qa5fW4Eoa5wW5oi9cYrdfxqOWKZYtVfz7if-zXAjrCwCiHqbJXDvrDQQuvzSUL9uqF3xiMOMrctvF5d">
+<img class="w-full h-full object-cover" src="images/historia-amasando.jpg" alt="Manos amasando pasta fresca en el laboratorio de Piatto Rosso" loading="lazy" decoding="async">
 </div>
 <div class="absolute -bottom-6 -right-4 p-space-md rounded-xl bg-surface shadow-xl hidden sm:block max-w-[200px]">
 <p class="font-title-md text-primary font-bold">Muchos Años</p>
@@ -899,22 +1138,22 @@
 <!-- 6 Instagram Photos Grid -->
 <div class="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-space-sm">
 <div class="aspect-square rounded-xl overflow-hidden shadow-sm group relative bg-surface-dim">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Cut open hot artisanal ravioloni showing creamy melted cheese and braised beef filling oozing out on an antique plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjJPnLZUndHHJbbE442biWImQ3d8pdr_21sQkiFnd-KE9_1mRPfM-ElMebAtcrafkb7tHkE96Cdl09GVtV8M1UnHPNSYtk_uOW88zQov6emU_dl-WInWGjF3r0ztdqS2X-PzfASmDijLeDVgXSPMQeFxyCI617Z7SNz6qp9QXYAq-OB7OKJHQyCAY8JjUEgHYmFAtbD7EmEFqnpJ-k-Nw2PF5NTCMCwa0tfn5qWQiD_HE7Q8ZjmLLl">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/galeria-raviolon.jpg" alt="Raviolón abierto con relleno de carne y queso fundido" loading="lazy" decoding="async">
 </div>
 <div class="aspect-square rounded-xl overflow-hidden shadow-sm group relative bg-surface-dim">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Tightly coiled nests of fresh golden fettuccine noodles resting on natural flour-sprinkled butcher paper" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBajq3cetWo3tbWTQsfCpI3cR4srsvTd1UBZDkOPXCVjvmpsKueS5vKEajadDTsBvsJLnqK4mSx3daDdsSQkkz4dK_QqgmiRsOCR-o4TbabzZbESi9cJKpDkpC-8Ck_7E8Ul1dIAcgbSWu2oIz5IbCL4pj5UhGH3NiXnmMpp9kWzWqTimF2Ru5AkTVfB_iZ1x-yBukMoQFgie2-6DN3DJq5lWuq05cLdQaoeh58EDQqhZAVnGB2mgaM">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/galeria-fettuccine.jpg" alt="Nidos de fettuccine frescos sobre papel enharinado" loading="lazy" decoding="async">
 </div>
 <div class="aspect-square rounded-xl overflow-hidden shadow-sm group relative bg-surface-dim">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Steaming ceramic bowl filled with freshly cooked artisanal bolognese meat sauce with fresh basil sprig and extra virgin olive oil drizzle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIIwmHnG9UGXfqFwl9pVBqeuVB1GZ5azE0Q20a9gGSQJGcbLPiMlqfhiAtsXwl-8L-eZJVLAsrOTFtR7qJIIFVmNHfbEIsT6AX_KsmQ8apXa8bNvotOJcWjtA6jJKU_mLB_aZA3BSixrpbQYvGaxwo_ShYKEp60UqIAxznaFxx7WWXfnR2EiAH1AvhsP8x70fZ5fxW6sDk5kb868pPd0tvAgNTyLkzx0zNiA37aq3P4RkmKZ6hlHhl">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/galeria-bolognesa.jpg" alt="Plato de salsa boloñesa casera con albahaca fresca" loading="lazy" decoding="async">
 </div>
 <div class="aspect-square rounded-xl overflow-hidden shadow-sm group relative bg-surface-dim">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Golden baked lasagna portion served on a ceramic plate with bubbling golden browned cheese and tomato edges" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8PvnT5b5A0kbPEQ1NXoTxf2IAHBMNYp9BDbzfa5_U45woqK8uhhk8zBj9VDZlRpIqaJdFrV5ABAspw1GszR8-9U9KaMty-K7g1XCmH0HweqUnBDB5ygAsb9jNf_RNvtf3WCuigRmpamPK52gn4Ww0utFcLagx7-co1OA6uKhLwh3v-o_aJhazRLAq2dRfuCF_WHjXyOdElDOBgqXeaIdt8e70YWaURvBrIRCBRo7Wo-BapmQZSSUE">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/galeria-lasagna.jpg" alt="Porción de lasagna gratinada" loading="lazy" decoding="async">
 </div>
 <div class="aspect-square rounded-xl overflow-hidden shadow-sm group relative bg-surface-dim">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Crispy flaky golden Italian sfogliatella pastry dusted with fine powdered icing sugar on vintage tray" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiqSgf5Zoe2thY89o91i0Ia2yfqRf5lkCV5LMhhS_1W0jfI5jfb0sxSPiMlVXeKfyG5hcQ6wywYc0EpWpMbor9fQ_OIghBDb9L5_kr8hyocUHeTnhNHUZDkgJZxDNXwtyX6nAl_XIZEFrqsNf8R7srHr5idM8SavAWKlk5WDHvYoSA52OBw2TR-s9hqXjANXwdewP5r_4x5cPI93sO6pxDMOjzVhD0qC-sRlbk6FVcUEzpZZBWYobK">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/galeria-sfogliatella.jpg" alt="Sfogliatella dorada con azúcar impalpable" loading="lazy" decoding="async">
 </div>
 <div class="aspect-square rounded-xl overflow-hidden shadow-sm group relative bg-surface-dim">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Traditional Buenos Aires pasta shop glass counter showcasing rows of freshly cut ravioli boxes and handcrafted sauces" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVRuBMgM8SMjr-tmcU1oVQAlcvVCUEIEzAeNB2qaHTjJzEFdasA_GTkvvyTP91h20HJyMifjpnVsftLsF7UiZh6yoWI_o496VGkjBHmU3Qv5O8V6KXRSjnyGhCJB9Q-IFzIZaWHdtudo8Lyb5wFu09gWjhY1NwPkDdffzDyUbQRNUXmCjxyfOhwrwByi3RU62T735nu9K6IRlF1N1yDmYXk0t7F0wQb85haMpjolKECf5iOPAT14M9">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/galeria-mostrador.jpg" alt="Mostrador de Piatto Rosso con cajas de ravioles y salsas caseras" loading="lazy" decoding="async">
 </div>
 </div>
 </div>

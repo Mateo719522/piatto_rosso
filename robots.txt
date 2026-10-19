@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://piattorosso.vercel.app/sitemap.xml

@@ -1,0 +1,33 @@
+/* Fuente de los estilos del sitio. Se compila a css/styles.css con `npm run build:css`. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body { margin: 0; padding: 0; }
+  body { overscroll-behavior: none; }
+  main > :first-child { margin-top: 0 !important; }
+  main > :last-child { margin-bottom: 0 !important; }
+}
+
+::-webkit-scrollbar { display: none; }
+
+/* Mapa de sucursales */
+#branches-map { font-family: "Plus Jakarta Sans", sans-serif; }
+#branches-map .leaflet-tile-pane { filter: saturate(.55) sepia(.12) brightness(1.03); }
+.branch-pin { background: none; border: 0; }
+.branch-pin__wrap { position: relative; display: flex; flex-direction: column; align-items: center; transform: translateY(-4px); transition: transform .2s ease; }
+.branch-pin__dot { width: 40px; height: 40px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: #c91818; border: 3px solid #fff; box-shadow: 0 6px 16px rgba(45,25,15,.35); display: flex; align-items: center; justify-content: center; }
+.branch-pin__dot .material-symbols-outlined { transform: rotate(45deg); color: #fff; font-size: 20px; }
+.branch-pin__label { margin-top: 6px; padding: 2px 8px; border-radius: 9999px; background: #fdf9f0; color: #1c1c17; font: 700 11px/16px "Plus Jakarta Sans", sans-serif; white-space: nowrap; box-shadow: 0 2px 6px rgba(45,25,15,.2); }
+.branch-pin--top .branch-pin__wrap { flex-direction: column-reverse; }
+.branch-pin--top .branch-pin__label { margin-top: 0; margin-bottom: 10px; }
+.branch-pin.is-active .branch-pin__wrap { transform: translateY(-10px) scale(1.12); }
+.branch-pin.is-active .branch-pin__dot { background: #a00009; }
+.branch-pin.is-active .branch-pin__label { background: #a00009; color: #fff; }
+#branches-map .leaflet-popup-content-wrapper { border-radius: 16px; background: #fdf9f0; box-shadow: 0 20px 40px rgba(28,25,23,.18); }
+#branches-map .leaflet-popup-tip { background: #fdf9f0; }
+#branches-map .leaflet-popup-content { margin: 14px 16px; min-width: 210px; }
+#branches-map a.leaflet-popup-close-button { top: 6px; right: 6px; }
+.branch-chip.is-active { background: #a00009 !important; border-color: #a00009 !important; color: #fff !important; }
+.branch-card-active { box-shadow: 0 0 0 2px #c91818, 0 12px 28px rgba(45,25,15,.08); }

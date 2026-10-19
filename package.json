@@ -1,0 +1,12 @@
+{
+  "name": "piatto-rosso",
+  "private": true,
+  "description": "Sitio web de Piatto Rosso - Pastas Frescas Artesanales",
+  "scripts": {
+    "build:css": "tailwindcss -c tailwind.config.js -i src/styles.css -o css/styles.css --minify",
+    "watch:css": "tailwindcss -c tailwind.config.js -i src/styles.css -o css/styles.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}
